@@ -87,7 +87,7 @@ final class SafeToastContext extends ContextWrapper {
             } catch (BadTokenException e) {
                 Log.i(TAG, e.getMessage());
                 if (badTokenListener != null) {
-                    badTokenListener.onCaughtBadToken(toast);
+                    badTokenListener.onBadTokenCaught(toast);
                 }
             }
         }

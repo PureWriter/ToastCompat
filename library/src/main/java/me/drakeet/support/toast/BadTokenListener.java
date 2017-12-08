@@ -8,5 +8,5 @@ import android.widget.Toast;
  */
 public interface BadTokenListener {
 
-    void onCaughtBadToken(@NonNull Toast toast);
+    void onBadTokenCaught(@NonNull Toast toast);
 }
