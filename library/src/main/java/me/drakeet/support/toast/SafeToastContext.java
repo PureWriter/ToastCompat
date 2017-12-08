@@ -1,4 +1,4 @@
-package me.drakeet.toast;
+package me.drakeet.support.toast;
 
 import android.content.Context;
 import android.content.ContextWrapper;

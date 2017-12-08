@@ -1,4 +1,4 @@
-package me.drakeet.toast;
+package me.drakeet.support.toast;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
