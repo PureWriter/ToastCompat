@@ -16,7 +16,7 @@ import java.lang.reflect.Field;
  */
 public class ToastCompat extends Toast {
 
-    private final Toast toast;
+    private final @NonNull Toast toast;
 
 
     /**
@@ -47,7 +47,7 @@ public class ToastCompat extends Toast {
         // the View will unwrap the base context and we are in vain.
         @SuppressLint("ShowToast")
         Toast toast = Toast.makeText(context, text, duration);
-        setContext(toast.getView(), new SafeToastContext(context));
+        setContext(toast.getView(), new SafeToastContext(context, toast));
         return new ToastCompat(context, toast);
     }
 
@@ -113,7 +113,7 @@ public class ToastCompat extends Toast {
     @Override
     public void setView(View view) {
         toast.setView(view);
-        setContext(view, new SafeToastContext(view.getContext()));
+        setContext(view, new SafeToastContext(view.getContext(), this));
     }
 
 
@@ -156,6 +156,11 @@ public class ToastCompat extends Toast {
     @Override
     public View getView() {
         return toast.getView();
+    }
+
+
+    public @NonNull Toast getBaseToast() {
+        return toast;
     }
 
 

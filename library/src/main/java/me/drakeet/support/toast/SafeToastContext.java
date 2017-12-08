@@ -9,17 +9,21 @@ import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 /**
  * @author drakeet
  */
 public class SafeToastContext extends ContextWrapper {
 
+    private @NonNull Toast toast;
+
     private @Nullable BadTokenListener badTokenListener;
 
 
-    public SafeToastContext(@NonNull Context base) {
+    public SafeToastContext(@NonNull Context base, @NonNull Toast toast) {
         super(base);
+        this.toast = toast;
     }
 
 
@@ -83,7 +87,7 @@ public class SafeToastContext extends ContextWrapper {
             } catch (BadTokenException e) {
                 Log.i(TAG, e.getMessage());
                 if (badTokenListener != null) {
-                    badTokenListener.onBadTokenOccurred();
+                    badTokenListener.onBadTokenOccurred(toast);
                 }
             }
         }
