@@ -14,14 +14,14 @@ import android.widget.Toast;
 /**
  * @author drakeet
  */
-public class SafeToastContext extends ContextWrapper {
+final class SafeToastContext extends ContextWrapper {
 
     private @NonNull Toast toast;
 
     private @Nullable BadTokenListener badTokenListener;
 
 
-    public SafeToastContext(@NonNull Context base, @NonNull Toast toast) {
+    SafeToastContext(@NonNull Context base, @NonNull Toast toast) {
         super(base);
         this.toast = toast;
     }
@@ -29,7 +29,7 @@ public class SafeToastContext extends ContextWrapper {
 
     @Override
     public Context getApplicationContext() {
-        return new ApplicationContext(getBaseContext().getApplicationContext());
+        return new ApplicationContextWrapper(getBaseContext().getApplicationContext());
     }
 
 
@@ -38,9 +38,9 @@ public class SafeToastContext extends ContextWrapper {
     }
 
 
-    private class ApplicationContext extends ContextWrapper {
+    private final class ApplicationContextWrapper extends ContextWrapper {
 
-        public ApplicationContext(@NonNull Context base) {
+        private ApplicationContextWrapper(@NonNull Context base) {
             super(base);
         }
 
@@ -56,7 +56,7 @@ public class SafeToastContext extends ContextWrapper {
     }
 
 
-    private class WindowManagerWrapper implements WindowManager {
+    private final class WindowManagerWrapper implements WindowManager {
 
         private static final String TAG = "WindowManagerWrapper";
         private final @NonNull WindowManager base;

@@ -14,7 +14,7 @@ import java.lang.reflect.Field;
 /**
  * @author drakeet
  */
-public class ToastCompat extends Toast {
+public final class ToastCompat extends Toast {
 
     private final @NonNull Toast toast;
 
