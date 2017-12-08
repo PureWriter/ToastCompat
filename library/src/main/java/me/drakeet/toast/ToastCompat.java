@@ -47,8 +47,7 @@ public class ToastCompat extends Toast {
         // the View will unwrap the base context and we are in vain.
         @SuppressLint("ShowToast")
         Toast toast = Toast.makeText(context, text, duration);
-        View view = toast.getView();
-        setContext(view, new SafeToastContext(context));
+        setContext(toast.getView(), new SafeToastContext(context));
         return new ToastCompat(context, toast);
     }
 
