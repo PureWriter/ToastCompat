@@ -43,6 +43,8 @@ public class ToastCompat extends Toast {
      * {@link #LENGTH_LONG}
      */
     public static ToastCompat makeText(Context context, CharSequence text, int duration) {
+        // We cannot pass the SafeToastContext to Toast.makeText() because
+        // the View will unwrap the base context and we are in vain.
         @SuppressLint("ShowToast")
         Toast toast = Toast.makeText(context, text, duration);
         View view = toast.getView();
@@ -68,7 +70,7 @@ public class ToastCompat extends Toast {
 
 
     public @NonNull ToastCompat setBadTokenListener(@NonNull BadTokenListener listener) {
-        ((SafeToastContext)getView().getContext()).setBadTokenListener(listener);
+        ((SafeToastContext) getView().getContext()).setBadTokenListener(listener);
         return this;
     }
 
