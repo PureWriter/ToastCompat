@@ -13,6 +13,15 @@ implementation 'me.drakeet.support:toastcompat:1.0.0'
 ToastCompat.makeText(context, "hello world!", Toast.LENGTH_SHORT).show();
 ```
 
+Or with `BadTokenListener#onBadTokenCaught(@NonNull Toast toast)`: 
+
+```java
+ToastCompat.makeText(this, "hello", Toast.LENGTH_SHORT)
+    .setBadTokenListener(toast -> {
+        ...
+    }).show();
+```
+
 Goodbye, BadTokenException.
 
 License
