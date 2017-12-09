@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion gradle.compileSdkVersion
+    buildToolsVersion gradle.buildToolsVersion
     defaultConfig {
         applicationId "me.drakeet.toast.sample"
         minSdkVersion gradle.minSdkVersion

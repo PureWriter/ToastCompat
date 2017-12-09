@@ -17,6 +17,7 @@
 include ':sample'
 include ':library'
 
+gradle.ext.buildToolsVersion = '27.0.1'
 gradle.ext.supportLibraryVersion = '26.1.0'
 gradle.ext.versionCode = 1
 gradle.ext.versionName = "1.0.0"
