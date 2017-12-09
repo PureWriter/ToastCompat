@@ -1,5 +1,7 @@
 # ToastCompat
 
+An Android library to hook and fix Toast **BadTokenException**
+
 [![Build Status](https://travis-ci.org/drakeet/ToastCompat.svg)](https://travis-ci.org/drakeet/ToastCompat)
 ![maven-central](https://img.shields.io/maven-central/v/me.drakeet.support/toastcompat.svg)
 
