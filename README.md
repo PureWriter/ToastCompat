@@ -6,7 +6,7 @@
 ### Usage
 
 ```groovy
-implementation 'me.drakeet.support:toastcompat:1.0.0'
+implementation 'me.drakeet.support:toastcompat:1.0.1'
 ```
 
 ```java
