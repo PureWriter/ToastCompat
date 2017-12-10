@@ -58,7 +58,7 @@ Unable to add window -- token android.os.BinderProxy@1c4411f is not valid; is yo
 
 This exception occurs regardless of whether the `Context` you passed to `Toast` is an `Activity` or `ApplicationContext` or `Service`. And you can not `try-catch` it. Almost helpless. 
  
- See the detail diff of Android sources: 
+ See the detail diff of **Android Toast sources**: 
 
 ![handleShow25vs26.png](diff/handleShow25vs26.png)
 
