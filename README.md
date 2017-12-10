@@ -38,7 +38,7 @@ As Android said on API 26:
 // invalidated. Let us hedge against that.
 ```
 
-So they try-catch the `mWM.addView(mView, mParams)` on API 26. However, API 25 is still at risk. Our applications will continue to produce such an exception, and can not capture: 
+So they try-catch the `mWM.addView(mView, mParams)` on API 26. **However, API 25 is still at risk. Our applications will continue to produce such an exception, and can not capture it**: 
 
 ```java
 Fatal Exception: android.view.WindowManager$BadTokenException: 
@@ -56,7 +56,7 @@ Unable to add window -- token android.os.BinderProxy@1c4411f is not valid; is yo
        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:781)
 ```
 
-This exception occurs regardless of whether the `Context` you passed to `Toast` is an `Activity` or `ApplicationContext` or `Service`. And you can not try-catch it. Almost helpless. 
+This exception occurs regardless of whether the `Context` you passed to `Toast` is an `Activity` or `ApplicationContext` or `Service`. And you can not `try-catch` it. Almost helpless. 
  
  See the detail diff of Android sources: 
 
