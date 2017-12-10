@@ -64,7 +64,7 @@ This exception occurs regardless of whether the `Context` you passed to `Toast` 
 
 ### How
 
-So I created this library, and replace the base Context to a `SafeToastContext`, it will hook the `WindowManagerWrapper.addView(view, params)` method and fix the exception. Great, the problem be solved! It is almost the only solution. 
+So I created this library, and replace the base Context to a `SafeToastContext`, it will hook the `WindowManagerWrapper.addView(view, params)` method and fix the exception. It is almost the only solution. 
 
 
 License
