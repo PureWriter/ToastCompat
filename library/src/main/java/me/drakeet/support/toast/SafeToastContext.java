@@ -89,6 +89,8 @@ final class SafeToastContext extends ContextWrapper {
                 if (badTokenListener != null) {
                     badTokenListener.onBadTokenCaught(toast);
                 }
+            } catch (Throwable throwable) {
+                Log.e(TAG, "[addView]", throwable);
             }
         }
 
