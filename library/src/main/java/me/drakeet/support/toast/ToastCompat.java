@@ -70,7 +70,10 @@ public final class ToastCompat extends Toast {
 
 
   public @NonNull ToastCompat setBadTokenListener(@NonNull BadTokenListener listener) {
-    ((SafeToastContext) getView().getContext()).setBadTokenListener(listener);
+    final Context context = getView().getContext();
+    if (context instanceof SafeToastContext) {
+      ((SafeToastContext) context).setBadTokenListener(listener);
+    }
     return this;
   }
 
