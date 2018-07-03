@@ -19,14 +19,14 @@ import static org.hamcrest.Matchers.not;
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
 
-    @Rule
-    public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
+  @Rule
+  public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
 
 
-    @Test
-    public void shouldShowToastWithHello() {
-        onView(withText("hello"))
-            .inRoot(withDecorView(not(is(rule.getActivity().getWindow().getDecorView()))))
-            .check(matches(isDisplayed()));
-    }
+  @Test
+  public void shouldShowToastWithHello() {
+    onView(withText("hello"))
+        .inRoot(withDecorView(not(is(rule.getActivity().getWindow().getDecorView()))))
+        .check(matches(isDisplayed()));
+  }
 }

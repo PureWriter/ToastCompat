@@ -5,23 +5,23 @@ apply from: 'checkstyle.gradle'
 
 
 android {
-    compileSdkVersion gradle.compileSdkVersion
-    buildToolsVersion gradle.buildToolsVersion
+  compileSdkVersion gradle.compileSdkVersion
 
-    defaultConfig {
-        minSdkVersion gradle.minSdkVersion
-        targetSdkVersion gradle.targetSdkVersion
-        versionCode gradle.versionCode
-        versionName gradle.versionName
+  defaultConfig {
+    minSdkVersion gradle.minSdkVersion
+    targetSdkVersion gradle.targetSdkVersion
+    versionCode gradle.versionCode
+    versionName gradle.versionName
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
-    }
+  }
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support:support-annotations:' + gradle.supportLibraryVersion
+  testImplementation 'junit:junit:4.12'
+  implementation 'com.android.support:support-annotations:' + gradle.supportLibraryVersion
 }
