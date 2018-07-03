@@ -8,7 +8,7 @@ An Android library to hook and fix Toast **BadTokenException**
 ### Usage
 
 ```groovy
-implementation 'me.drakeet.support:toastcompat:1.0.2'
+implementation 'me.drakeet.support:toastcompat:1.1.0'
 ```
 
 ```java
