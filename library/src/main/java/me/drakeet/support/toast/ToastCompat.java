@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Resources;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.view.View;
@@ -47,7 +48,7 @@ public final class ToastCompat extends Toast {
     // the View will unwrap the base context and we are in vain.
     @SuppressLint("ShowToast")
     Toast toast = Toast.makeText(context, text, duration);
-    setContext(toast.getView(), new SafeToastContext(context, toast));
+    setContextCompat(toast.getView(), new SafeToastContext(context, toast));
     return new ToastCompat(context, toast);
   }
 
@@ -113,7 +114,7 @@ public final class ToastCompat extends Toast {
   @Override
   public void setView(View view) {
     toast.setView(view);
-    setContext(view, new SafeToastContext(view.getContext(), this));
+    setContextCompat(view, new SafeToastContext(view.getContext(), this));
   }
 
 
@@ -164,13 +165,15 @@ public final class ToastCompat extends Toast {
   }
 
 
-  private static void setContext(@NonNull View view, @NonNull Context context) {
-    try {
-      Field field = View.class.getDeclaredField("mContext");
-      field.setAccessible(true);
-      field.set(view, context);
-    } catch (Throwable throwable) {
-      throwable.printStackTrace();
+  private static void setContextCompat(@NonNull View view, @NonNull Context context) {
+    if (Build.VERSION.SDK_INT == 25) {
+      try {
+        Field field = View.class.getDeclaredField("mContext");
+        field.setAccessible(true);
+        field.set(view, context);
+      } catch (Throwable throwable) {
+        throwable.printStackTrace();
+      }
     }
   }
 }
