@@ -56,7 +56,7 @@ Unable to add window -- token android.os.BinderProxy@1c4411f is not valid; is yo
        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:781)
 ```
 
-This exception occurs regardless of whether the `Context` you passed to `Toast` is an `Activity` or `ApplicationContext` or `Service`. And you can not `try-catch` it. Almost helpless. 
+This exception occurs regardless of whether the `Context` you passed to `Toast` is an `Activity` or `ApplicationContext` or `Service`. And you can not `try-catch` it. 
  
  See the detail diff of **Android Toast sources**: 
 
@@ -64,7 +64,7 @@ This exception occurs regardless of whether the `Context` you passed to `Toast` 
 
 ### How
 
-So I created this library, and replace the base Context to a `SafeToastContext`, it will hook the `WindowManagerWrapper.addView(view, params)` method and fix the exception. It is almost the only solution. 
+So I created this library, and replace the base Context to a `SafeToastContext`, it will hook the `WindowManagerWrapper.addView(view, params)` method and fix the exception. 
 
 
 License
